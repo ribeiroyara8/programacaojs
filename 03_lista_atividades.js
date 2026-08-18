@@ -189,6 +189,13 @@ e que o valor original da segunda variável seja armazenado na primeira variáve
 Ao final, mostre o valor das duas variáveis na tela.
 
 */
+let valor3 = "groselha" 
+let valor4 = 99
+let auxiliar = valor3
+valor3 = valor4
+valor4 = auxiliar
+console.log("A variavel 1 é: "+valor3+" e a variavel 2 é: " +valor4)
+
 
 /*
 ### ----- Atividade 12:
