@@ -6,5 +6,9 @@ let peso = prompt("Digite seu peso:")
 
 
 let imc = peso / (altura * altura)
-console.log("Seu imc é:"+imc)
+if(imc < 25){
+    console.log("Voce esta com o peso ideal")
+} else {
+    console.log("Voce esta sobrepeso")
+}
 
