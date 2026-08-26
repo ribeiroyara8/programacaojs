@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="painelLogin">
+        <h1>Login</h1>
+        <form>
+            <p>Digite seu usuário:</p>
+            <input id="inputUsuario" />
+            <p>Digite sua senha:</p>
+            <input id="inputSenha" type="password" />
+            <br /><br />
+
+        </form>
+        <button onclick="autenticar()"> Entrar</button>
+    </div>
+
+
+    <hr />
+
+    <div id="painelAdministrativo" style="display: none;">
+        <h1>Painel administrativo</h1>
+        <p>Você esta logado como <strong>administrador</strong></p>
+        <button onclick="logout()">Sair da Conta</button>
+        <br/><br/>
+        <button onclick="Sorvete()"> Volte para o jogo </button>
+
+    </div>
+    
+
+    <script>
+
+
+        function Sorvete(){
+            location.href = "08_conradito_sorvetito.html"
+        } 
+
+
+        verificalogin()
+
+        function verificalogin(){
+
+            let autenticado = localStorage.getItem("autenticado")
+
+            if(autenticado == 1){
+                document.getElementById("painelAdministrativo").style.display = "block"
+                document.getElementById("painelLogin").style.display = "none"
+            }
+
+        }
+
+
+        function autenticar() {
+
+            // Busca e popula a variaveis com os valores dos inputs
+            let usuario = document.getElementById("inputUsuario").value
+            let senha = document.getElementById("inputSenha").value
+
+            if (usuario.trim().length < 3) {
+                alert("Usuario incorreto. Verifique e tente novamente...")
+                return
+            }
+
+            if (senha.length == 0) {
+                alert("Senha incorreto. Verifique e tente novamente...")
+                return
+            }
+
+            if (usuario != "administrador") {
+                alert("Usuario incorreto")
+                return
+            }
+
+            if (senha != "123123") {
+                alert("Senha incorreta")
+                return
+            }
+
+            localStorage.setItem("autenticado", 1)
+
+            // Alterna a visualizacao dos paineis (mostrar/ocultar)
+            document.getElementById("painelAdministrativo").style.display = "block"
+            document.getElementById("painelLogin").style.display = "none"
+        }
+
+        function logout() {
+
+            localStorage.removeItem("autenticado")
+
+            document.getElementById("painelAdministrativo").style.display = "none"
+            document.getElementById("painelLogin").style.display = "block"
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
