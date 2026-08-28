@@ -17,7 +17,8 @@
     <br/>
 
     <input id="inputNome" placeholder="Digite um nome" />
-    <button onclick="inserir()" >Salvar</button>
+    <button id="botaoSalvar"  onclick="inserir()" >Salvar</button>
+    <button  id="botaoAlterar" style="display: none;" onclick="salvarAlteracao()" > Salvar Alterações</button>
 
     <ul id="listaUsuarios" >
 
@@ -28,7 +29,46 @@
         //Dados mockaodos
         let nomes = ["Conrado","Caio","Felipe","Rafael","Julia" ] //Array
 
+        let posicaoAlteracao
+
         buscarTodos()
+
+        function remover(nome){
+
+            let resposta = confirm("Tem certeza que deseja remover?")
+            if(resposta == false){
+                return
+            }
+
+            let posicaoRemocao = nomes.indexOf(nome)
+            nomes.splice(posicaoAlteracao, 1)
+            buscarTodos()
+        }
+
+        function salvarAlteracao(){
+            let nome = document.getElementById("inputNome").value
+            
+            if (nome.trim().length < 3) {
+                alert("Usuario incorreto. Verifique e tente novamente...")
+                return
+            }
+            nomes[posicaoAlteracao] = nome
+            buscarTodos()
+            document.getElementById("inputNome").value = ""
+            
+            
+        }
+
+
+        function atualizar(nome){
+
+            posicaoAlteracao = nomes.indexOf(nome)
+
+            document.getElementById("inputNome").value = nome
+            document.getElementById("botaoSalvar").style.display = "none"
+            document.getElementById("botaoAlterar").style.display = "inline-block"
+
+        }
 
         function inserir(){
             let nome = document.getElementById("inputNome").value
@@ -46,7 +86,7 @@
         function buscarTodos(){
            
             let html = ""
-            nomes.map( i => html += "<li> "+i+" <button>🖊</button> <button>🗑</button> </li>" )
+            nomes.map( i => html += `<li> ${i} <button onclick='atualizar("${i}")'>🖊</button> <button onclick='remover ("${i}")'>🗑</button> </li>` )
             document.getElementById("listaUsuarios").innerHTML =html
 
         }
