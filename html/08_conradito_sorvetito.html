@@ -1,77 +1,1690 @@
 <!DOCTYPE html>
-<html lang="pt">
+
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conradito Sorvetito 🍦</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #fff0f7, #ffd6e8, #ffb6d5);
+        color: #8b1952;
+        overflow-x: hidden;
+    }
+
+    /* =========================
+       CABEÇALHO
+    ========================= */
+
+    header {
+        background: linear-gradient(135deg, #ff8fc4, #f54291);
+        color: white;
+        text-align: center;
+        padding: 30px 15px;
+        box-shadow: 0 5px 15px rgba(150, 20, 80, 0.2);
+    }
+
+    header h1 {
+        font-size: 40px;
+        margin: 0 0 15px;
+        text-shadow: 2px 2px #b51f61;
+    }
+
+    .dinheiro {
+        font-size: 22px;
+        margin: 8px;
+    }
+
+    #textoDinheiro {
+        font-size: 30px;
+    }
+
+    .ganho {
+        font-size: 18px;
+    }
+
+    /* =========================
+       ÁREA DO SORVETE
+    ========================= */
+
+    .areaSorvete {
+        text-align: center;
+        padding: 35px 20px;
+    }
+
+    .areaSorvete h2 {
+        color: #c5226c;
+    }
+
+    .clique {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .areaClique {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .sorvete {
+        width: 190px;
+        border-radius: 50%;
+        user-select: none;
+        transition: transform 0.2s;
+        filter: drop-shadow(0 10px 15px rgba(180, 30, 90, 0.2));
+    }
+
+    .areaClique:hover .sorvete {
+        transform: scale(1.08);
+    }
+
+    .areaClique:active .sorvete {
+        transform: scale(0.90);
+    }
+
+    /* ANIMAÇÃO DO CLIQUE */
+
+    .animacaoSorvete {
+        animation: pulsoSorvete 0.2s ease;
+    }
+
+    @keyframes pulsoSorvete {
+
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(0.88);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+
+    }
+
+    /* =========================
+       EFEITO DO DINHEIRO
+    ========================= */
+
+    .efeitoDinheiro {
+        position: fixed;
+        color: #e91e73;
+        font-size: 22px;
+        font-weight: bold;
+        pointer-events: none;
+        animation: subirDinheiro 0.8s ease-out forwards;
+        z-index: 9999;
+        text-shadow: 1px 1px white;
+    }
+
+    @keyframes subirDinheiro {
+
+        0% {
+            opacity: 1;
+            transform: translate(-50%, 0) scale(1);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -80px) scale(1.3);
+        }
+
+    }
+
+    /* =========================
+       CORAÇÕES E ESTRELAS
+    ========================= */
+
+    .particula {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9998;
+        font-size: 24px;
+        animation: subirParticula 0.9s ease-out forwards;
+    }
+
+    @keyframes subirParticula {
+
+        0% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(var(--x), -100px) rotate(25deg) scale(0.5);
+        }
+
+    }
+
+    /* =========================
+       CONTEÚDO
+    ========================= */
+
+    .conteudo {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .titulo {
+        text-align: center;
+        color: #c5226c;
+        margin-top: 25px;
+    }
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .status {
+        background: white;
+        border: 3px solid #ff9ac6;
+        border-radius: 20px;
+        padding: 20px;
+        margin: 20px 0 30px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(180, 30, 90, 0.12);
+    }
+
+    .status h2 {
+        color: #d52d78;
+    }
+
+    .barraFundo {
+        width: 100%;
+        max-width: 700px;
+        height: 20px;
+        margin: 15px auto;
+        background: #ffd6e7;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    #barraNivel {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #ff4f98, #d91668);
+        transition: 0.3s;
+    }
+
+    /* =========================
+       MELHORIAS
+    ========================= */
+
+    .produtos {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .produto {
+        background: white;
+        width: 280px;
+        padding: 25px;
+        border-radius: 22px;
+        border: 2px solid #ffafd0;
+        text-align: center;
+        box-shadow: 0 6px 18px rgba(180, 30, 90, 0.12);
+        transition: 0.2s;
+    }
+
+    .produto:hover {
+        transform: translateY(-5px);
+    }
+
+    .emojiProduto {
+        font-size: 50px;
+    }
+
+    .produto h3 {
+        color: #d52d78;
+        font-size: 22px;
+    }
+
+    .preco {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    /* =========================
+       BOTÕES
+    ========================= */
+
+    button {
+        border: none;
+        padding: 12px 20px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ff4f98, #e91e73);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    button:disabled {
+        background: #cda4b7;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    /* =========================
+       SABORES
+    ========================= */
+
+    .sabores {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .sabor {
+        background: #ffe5f0;
+        border: 2px solid #ff9ac6;
+        border-radius: 18px;
+        width: 180px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .sabor .emoji {
+        font-size: 40px;
+    }
+
+    .sabor h3 {
+        color: #c5226c;
+    }
+
+    /* =========================
+       RECOMPENSA
+    ========================= */
+
+    .recompensa {
+        background: linear-gradient(135deg, #fff2aa, #ffe2ef);
+        border: 3px solid #ffb1d0;
+        border-radius: 22px;
+        padding: 25px;
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .recompensa h2 {
+        color: #c5226c;
+    }
+
+    /* =========================
+       BOTÕES FINAIS
+    ========================= */
+
+    .botoesFinais {
+        text-align: center;
+        margin: 30px 0 50px;
+    }
+
+    .salvar {
+        background: #b91f63;
+        margin: 5px;
+    }
+
+    .painel {
+        background: #7d1748;
+        margin: 5px;
+    }
+
+    /* =========================
+       RODAPÉ
+    ========================= */
+
+    footer {
+        background: #b91f63;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+</style>
+```
+
 </head>
 
 <body>
 
-    <h1>Conradito Sorvetito 🍦</h1>
-    <p>Você tem 💲<strong id="textoDinheiro"> 0</strong></p>
+```
+<!-- CABEÇALHO -->
 
-    <img onclick="venderSorvete()" width="100" src="https://i.pinimg.com/originals/f9/0e/f4/f90ef4a7066f2cfb176145bcaeec3302.gif"> 
-    <hr />
+<header>
 
-    <ul>
-        <li>Carrinho de Sorvete - 💲  <strong id ="textoCarrinhoSorvete"> 25 </strong> <button onclick="carrinhoSorvete()">COMPRAR</button> </li>
-        <li>Freezer Grande - 💲 1.000   <button>COMPRAR</button> </li>
-        <li>Marca Gourmet - 💲 50.000   <button>COMPRAR</button> </li>
-    </ul>
+    <h1>🍦 Conradito Sorvetito 🍦</h1>
 
-    <p>Entre com uma conta para ganhar 💲 1.000 <button onclick="resgatarRecompensa()" >Resgatar Recompensa</button></p>
-    
-    <button onclick="painelAdministrativo()">Ir para o Painel</button>
+    <p class="dinheiro">
+        Você tem 💰
+        <strong id="textoDinheiro">0</strong>
+    </p>
+
+    <p class="ganho">
+
+        Ganho por clique:
+
+        R$ <strong id="textoGanho">1</strong>
+
+    </p>
+
+</header>
 
 
-    <script>
+<!-- ÁREA DO SORVETE -->
 
-        let dinheiro = 0
-        let dinheiroPorClique = 1
-        let custoCarrinhoSorvete = 25 
+<div class="areaSorvete">
 
-        function painelAdministrativo(){
-            location.href ="09_painel.html"
+    <h2>🍨 Venda seus sorvetes!</h2>
+
+    <p class="clique">
+        Clique no sorvete para ganhar dinheiro! 👇
+    </p>
+
+
+    <div
+        class="areaClique"
+        onclick="venderSorvete()"
+    >
+
+        <img
+            class="sorvete"
+            src="https://i.pinimg.com/originals/f9/0e/f4/f90ef4a7066f2cfb176145bcaeec3302.gif"
+            alt="Sorvete"
+        >
+
+    </div>
+
+</div>
+
+
+<div class="conteudo">
+
+
+    <!-- STATUS -->
+
+    <h2 class="titulo">
+        ⭐ Status da Sorveteria ⭐
+    </h2>
+
+
+    <div class="status">
+
+        <h2>
+            Nível
+            <span id="textoNivel">1</span>
+        </h2>
+
+        <h3 id="nomeNivel">
+            Sorveteria Pequena
+        </h3>
+
+        <p>
+            Próximo nível:
+            <strong id="textoProximoNivel">
+                500
+            </strong>
+        </p>
+
+
+        <div class="barraFundo">
+
+            <div id="barraNivel"></div>
+
+        </div>
+
+
+        <p>
+            Melhorias compradas:
+            <strong id="textoMelhorias">
+                0
+            </strong>
+        </p>
+
+    </div>
+
+
+    <!-- MELHORIAS -->
+
+    <h2 class="titulo">
+        🛒 Melhorias
+    </h2>
+
+
+    <div class="produtos">
+
+
+        <div class="produto">
+
+            <div class="emojiProduto">
+                🍦
+            </div>
+
+            <h3>
+                Carrinho de Sorvete
+            </h3>
+
+            <p>
+                Aumenta seu ganho em
+                <strong>+1 por clique</strong>.
+            </p>
+
+            <p class="preco">
+                💰 R$
+                <span id="precoCarrinho">
+                    25
+                </span>
+            </p>
+
+            <button onclick="carrinhoSorvete()">
+                COMPRAR
+            </button>
+
+        </div>
+
+
+        <div class="produto">
+
+            <div class="emojiProduto">
+                🧊
+            </div>
+
+            <h3>
+                Freezer Grande
+            </h3>
+
+            <p>
+                Aumenta seu ganho em
+                <strong>+10 por clique</strong>.
+            </p>
+
+            <p class="preco">
+                💰 R$ 1.000
+            </p>
+
+            <button
+                id="botaoFreezer"
+                onclick="comprarFreezer()"
+            >
+                COMPRAR
+            </button>
+
+        </div>
+
+
+        <div class="produto">
+
+            <div class="emojiProduto">
+                ⭐
+            </div>
+
+            <h3>
+                Marca Gourmet
+            </h3>
+
+            <p>
+                Aumenta seu ganho em
+                <strong>+100 por clique</strong>.
+            </p>
+
+            <p class="preco">
+                💰 R$ 50.000
+            </p>
+
+            <button
+                id="botaoMarca"
+                onclick="comprarMarca()"
+            >
+                COMPRAR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SABORES -->
+
+    <h2 class="titulo">
+        🍓 Sabores Especiais
+    </h2>
+
+
+    <div class="sabores">
+
+
+        <div class="sabor">
+
+            <div class="emoji">
+                🍓
+            </div>
+
+            <h3>
+                Morango
+            </h3>
+
+            <p>
+                +2 por clique
+            </p>
+
+            <p>
+                R$ 50
+            </p>
+
+            <button onclick="comprarSabor('morango')">
+                COMPRAR
+            </button>
+
+        </div>
+
+
+        <div class="sabor">
+
+            <div class="emoji">
+                🍫
+            </div>
+
+            <h3>
+                Chocolate
+            </h3>
+
+            <p>
+                +5 por clique
+            </p>
+
+            <p>
+                R$ 200
+            </p>
+
+            <button onclick="comprarSabor('chocolate')">
+                COMPRAR
+            </button>
+
+        </div>
+
+
+        <div class="sabor">
+
+            <div class="emoji">
+                🍪
+            </div>
+
+            <h3>
+                Cookies
+            </h3>
+
+            <p>
+                +10 por clique
+            </p>
+
+            <p>
+                R$ 1.000
+            </p>
+
+            <button onclick="comprarSabor('cookies')">
+                COMPRAR
+            </button>
+
+        </div>
+
+
+        <div class="sabor">
+
+            <div class="emoji">
+                🥭
+            </div>
+
+            <h3>
+                Manga
+            </h3>
+
+            <p>
+                +20 por clique
+            </p>
+
+            <p>
+                R$ 5.000
+            </p>
+
+            <button onclick="comprarSabor('manga')">
+                COMPRAR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECOMPENSA -->
+
+    <div class="recompensa">
+
+        <h2>
+            🎁 Recompensa de Login
+        </h2>
+
+        <p>
+            Entre com uma conta e ganhe
+            <strong>R$ 1.000!</strong>
+        </p>
+
+        <button
+            id="botaoRecompensa"
+            onclick="resgatarRecompensa()"
+        >
+            🎁 RESGATAR RECOMPENSA
+        </button>
+
+    </div>
+
+
+    <!-- BOTÕES -->
+
+    <div class="botoesFinais">
+
+        <button
+            class="salvar"
+            onclick="salvarJogo()"
+        >
+            💾 SALVAR JOGO
+        </button>
+
+
+        <button
+            class="painel"
+            onclick="painelAdministrativo()"
+        >
+            ⚙️ IR PARA O PAINEL
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    🍦 Conradito Sorvetito 🍦
+    <br>
+    O melhor sorvete da cidade! 💗
+
+</footer>
+
+
+
+<script>
+
+
+    /* =========================
+       VARIÁVEIS
+    ========================= */
+
+    let dinheiro = 0;
+
+    let dinheiroPorClique = 1;
+
+    let custoCarrinhoSorvete = 25;
+
+    let freezerComprado = false;
+
+    let marcaComprada = false;
+
+    let melhoriasCompradas = 0;
+
+
+    let saboresComprados = {
+
+        morango: false,
+
+        chocolate: false,
+
+        cookies: false,
+
+        manga: false
+
+    };
+
+
+    /* =========================
+       ATUALIZAR TELA
+    ========================= */
+
+    function atualizarTela() {
+
+        document.getElementById("textoDinheiro").innerHTML =
+            dinheiro;
+
+        document.getElementById("textoGanho").innerHTML =
+            dinheiroPorClique;
+
+        document.getElementById("precoCarrinho").innerHTML =
+            custoCarrinhoSorvete;
+
+        document.getElementById("textoMelhorias").innerHTML =
+            melhoriasCompradas;
+
+        atualizarNivel();
+
+    }
+
+
+    /* =========================
+       CLICAR NO SORVETE
+    ========================= */
+
+    function venderSorvete() {
+
+        dinheiro =
+            dinheiro + dinheiroPorClique;
+
+
+        atualizarTela();
+
+
+        criarEfeitoDinheiro();
+
+
+        criarParticulas();
+
+
+        let sorvete =
+            document.querySelector(".sorvete");
+
+
+        sorvete.classList.remove(
+            "animacaoSorvete"
+        );
+
+
+        void sorvete.offsetWidth;
+
+
+        sorvete.classList.add(
+            "animacaoSorvete"
+        );
+
+    }
+
+
+    /* =========================
+       EFEITO DO DINHEIRO
+    ========================= */
+
+    function criarEfeitoDinheiro() {
+
+        let efeito =
+            document.createElement("div");
+
+
+        efeito.className =
+            "efeitoDinheiro";
+
+
+        efeito.innerHTML =
+            "+ R$ " +
+            dinheiroPorClique +
+            " 💗";
+
+
+        let sorvete =
+            document.querySelector(".sorvete");
+
+
+        let posicao =
+            sorvete.getBoundingClientRect();
+
+
+        efeito.style.left =
+            (posicao.left +
+            posicao.width / 2) +
+            "px";
+
+
+        efeito.style.top =
+            posicao.top +
+            "px";
+
+
+        document.body.appendChild(
+            efeito
+        );
+
+
+        setTimeout(function() {
+
+            efeito.remove();
+
+        }, 800);
+
+    }
+
+
+    /* =========================
+       CORAÇÕES E ESTRELAS
+    ========================= */
+
+    function criarParticulas() {
+
+        let emojis = [
+            "💗",
+            "💕",
+            "✨",
+            "💖",
+            "⭐"
+        ];
+
+
+        let sorvete =
+            document.querySelector(".sorvete");
+
+
+        let posicao =
+            sorvete.getBoundingClientRect();
+
+
+        for (
+            let i = 0;
+            i < 5;
+            i++
+        ) {
+
+            let particula =
+                document.createElement("div");
+
+
+            particula.className =
+                "particula";
+
+
+            particula.innerHTML =
+                emojis[
+                    Math.floor(
+                        Math.random() *
+                        emojis.length
+                    )
+                ];
+
+
+            particula.style.left =
+                (
+                    posicao.left +
+                    posicao.width / 2
+                ) +
+                "px";
+
+
+            particula.style.top =
+                (
+                    posicao.top +
+                    30
+                ) +
+                "px";
+
+
+            let movimento =
+                (Math.random() * 120) - 60;
+
+
+            particula.style.setProperty(
+                "--x",
+                movimento + "px"
+            );
+
+
+            document.body.appendChild(
+                particula
+            );
+
+
+            setTimeout(function() {
+
+                particula.remove();
+
+            }, 900);
+
         }
 
-        function venderSorvete() {
-            dinheiro += dinheiroPorClique
-            document.getElementById("textoDinheiro").innerHTML = dinheiro
+    }
+
+
+    /* =========================
+       CARRINHO
+    ========================= */
+
+    function carrinhoSorvete() {
+
+        if (
+            dinheiro <
+            custoCarrinhoSorvete
+        ) {
+
+            alert(
+                "Você não tem dinheiro suficiente! 😔"
+            );
+
+            return;
+
         }
 
-        function carrinhoSorvete() {
 
-            if (dinheiro < custoCarrinhoSorvete) {
-                alert("Dinheiro insuficiente 🙁....")
-            } else {
-                dinheiroPorClique += 1
-                dinheiro -= custoCarrinhoSorvete
-                document.getElementById("textoDinheiro").innerHTML = dinheiro
-                custoCarrinhoSorvete += parseInt(custoCarrinhoSorvete * 0.2)
-                document.getElementById("textoCarrinhoSorvete").innerHTML = custoCarrinhoSorvete
-        
+        dinheiro =
+            dinheiro -
+            custoCarrinhoSorvete;
+
+
+        dinheiroPorClique =
+            dinheiroPorClique + 1;
+
+
+        melhoriasCompradas =
+            melhoriasCompradas + 1;
+
+
+        custoCarrinhoSorvete =
+            custoCarrinhoSorvete +
+            Math.floor(
+                custoCarrinhoSorvete * 0.2
+            );
+
+
+        alert(
+            "Carrinho comprado! 🍦 +1 por clique!"
+        );
+
+
+        atualizarTela();
+
+    }
+
+
+    /* =========================
+       FREEZER
+    ========================= */
+
+    function comprarFreezer() {
+
+        if (
+            freezerComprado == true
+        ) {
+
+            alert(
+                "Você já comprou o freezer! 🧊"
+            );
+
+            return;
+
+        }
+
+
+        if (dinheiro < 1000) {
+
+            alert(
+                "Você precisa de R$ 1.000! 💰"
+            );
+
+            return;
+
+        }
+
+
+        dinheiro =
+            dinheiro - 1000;
+
+
+        dinheiroPorClique =
+            dinheiroPorClique + 10;
+
+
+        melhoriasCompradas =
+            melhoriasCompradas + 1;
+
+
+        freezerComprado =
+            true;
+
+
+        document.getElementById(
+            "botaoFreezer"
+        ).innerHTML =
+            "COMPRADO ✅";
+
+
+        document.getElementById(
+            "botaoFreezer"
+        ).disabled =
+            true;
+
+
+        alert(
+            "Freezer comprado! 🧊 +10 por clique!"
+        );
+
+
+        atualizarTela();
+
+    }
+
+
+    /* =========================
+       MARCA GOURMET
+    ========================= */
+
+    function comprarMarca() {
+
+        if (
+            marcaComprada == true
+        ) {
+
+            alert(
+                "Você já comprou a Marca Gourmet! ⭐"
+            );
+
+            return;
+
+        }
+
+
+        if (dinheiro < 50000) {
+
+            alert(
+                "Você precisa de R$ 50.000! 💰"
+            );
+
+            return;
+
+        }
+
+
+        dinheiro =
+            dinheiro - 50000;
+
+
+        dinheiroPorClique =
+            dinheiroPorClique + 100;
+
+
+        melhoriasCompradas =
+            melhoriasCompradas + 1;
+
+
+        marcaComprada =
+            true;
+
+
+        document.getElementById(
+            "botaoMarca"
+        ).innerHTML =
+            "COMPRADO ✅";
+
+
+        document.getElementById(
+            "botaoMarca"
+        ).disabled =
+            true;
+
+
+        alert(
+            "Marca Gourmet comprada! ⭐ +100 por clique!"
+        );
+
+
+        atualizarTela();
+
+    }
+
+
+    /* =========================
+       SABORES
+    ========================= */
+
+    function comprarSabor(sabor) {
+
+        let preco = 0;
+
+        let ganho = 0;
+
+
+        if (sabor == "morango") {
+
+            preco = 50;
+            ganho = 2;
+
+        }
+
+
+        if (sabor == "chocolate") {
+
+            preco = 200;
+            ganho = 5;
+
+        }
+
+
+        if (sabor == "cookies") {
+
+            preco = 1000;
+            ganho = 10;
+
+        }
+
+
+        if (sabor == "manga") {
+
+            preco = 5000;
+            ganho = 20;
+
+        }
+
+
+        if (
+            saboresComprados[sabor] ==
+            true
+        ) {
+
+            alert(
+                "Você já comprou esse sabor! 🍦"
+            );
+
+            return;
+
+        }
+
+
+        if (dinheiro < preco) {
+
+            alert(
+                "Você não tem dinheiro suficiente! 💰"
+            );
+
+            return;
+
+        }
+
+
+        dinheiro =
+            dinheiro - preco;
+
+
+        dinheiroPorClique =
+            dinheiroPorClique + ganho;
+
+
+        melhoriasCompradas =
+            melhoriasCompradas + 1;
+
+
+        saboresComprados[sabor] =
+            true;
+
+
+        alert(
+            "Sabor comprado! 🍨 +" +
+            ganho +
+            " por clique!"
+        );
+
+
+        atualizarTela();
+
+    }
+
+
+    /* =========================
+       NÍVEIS
+    ========================= */
+
+    function atualizarNivel() {
+
+        let nivel = 1;
+
+        let nome =
+            "Sorveteria Pequena";
+
+        let proximo = 500;
+
+
+        if (dinheiro >= 500) {
+
+            nivel = 2;
+
+            nome =
+                "Sorveteria da Praça";
+
+            proximo = 5000;
+
+        }
+
+
+        if (dinheiro >= 5000) {
+
+            nivel = 3;
+
+            nome =
+                "Sorveteria Gourmet";
+
+            proximo = 25000;
+
+        }
+
+
+        if (dinheiro >= 25000) {
+
+            nivel = 4;
+
+            nome =
+                "Sorveteria Famosa";
+
+            proximo = 100000;
+
+        }
+
+
+        if (dinheiro >= 100000) {
+
+            nivel = 5;
+
+            nome =
+                "Império do Sorvete 👑";
+
+            proximo = 100000;
+
+        }
+
+
+        document.getElementById(
+            "textoNivel"
+        ).innerHTML =
+            nivel;
+
+
+        document.getElementById(
+            "nomeNivel"
+        ).innerHTML =
+            nome;
+
+
+        document.getElementById(
+            "textoProximoNivel"
+        ).innerHTML =
+            proximo;
+
+
+        let porcentagem = 0;
+
+
+        if (nivel == 1) {
+
+            porcentagem =
+                (dinheiro / 500) * 100;
+
+        }
+
+
+        if (nivel == 2) {
+
+            porcentagem =
+                (
+                    (dinheiro - 500) /
+                    4500
+                ) * 100;
+
+        }
+
+
+        if (nivel == 3) {
+
+            porcentagem =
+                (
+                    (dinheiro - 5000) /
+                    20000
+                ) * 100;
+
+        }
+
+
+        if (nivel == 4) {
+
+            porcentagem =
+                (
+                    (dinheiro - 25000) /
+                    75000
+                ) * 100;
+
+        }
+
+
+        if (nivel == 5) {
+
+            porcentagem = 100;
+
+        }
+
+
+        if (porcentagem > 100) {
+
+            porcentagem = 100;
+
+        }
+
+
+        document.getElementById(
+            "barraNivel"
+        ).style.width =
+            porcentagem + "%";
+
+    }
+
+
+    /* =========================
+       RECOMPENSA
+    ========================= */
+
+    function resgatarRecompensa() {
+
+        if (
+            localStorage.getItem(
+                "autenticado"
+            ) == 1
+        ) {
+
+
+            if (
+                localStorage.getItem(
+                    "recompensaResgatada"
+                ) == 1
+            ) {
+
+                alert(
+                    "Você já pegou sua recompensa! 🎁"
+                );
+
+                return;
+
             }
 
-            
+
+            dinheiro =
+                dinheiro + 1000;
+
+
+            localStorage.setItem(
+                "recompensaResgatada",
+                1
+            );
+
+
+            document.getElementById(
+                "botaoRecompensa"
+            ).innerHTML =
+                "RECOMPENSA RESGATADA ✅";
+
+
+            document.getElementById(
+                "botaoRecompensa"
+            ).disabled =
+                true;
+
+
+            alert(
+                "Parabéns! Você ganhou R$ 1.000! 🎁"
+            );
+
+
+            atualizarTela();
+
         }
 
-        function resgatarRecompensa(){
-            if( localStorage.getItem("autenticado") ==1 ){
-                alert("Recomoensa concebida!")
-                dinheiro += 1000
-                document.getElementById("textoDinheiro").innerHTML = dinheiro
-            }else{
-                alert("Você deve fazer o login para continuar😔")
+        else {
+
+            alert(
+                "Você precisa fazer login para resgatar a recompensa! 😔"
+            );
+
+        }
+
+    }
+
+
+    /* =========================
+       SALVAR JOGO
+    ========================= */
+
+    function salvarJogo() {
+
+        localStorage.setItem(
+            "dinheiro",
+            dinheiro
+        );
+
+
+        localStorage.setItem(
+            "dinheiroPorClique",
+            dinheiroPorClique
+        );
+
+
+        localStorage.setItem(
+            "custoCarrinho",
+            custoCarrinhoSorvete
+        );
+
+
+        localStorage.setItem(
+            "freezerComprado",
+            freezerComprado
+        );
+
+
+        localStorage.setItem(
+            "marcaComprada",
+            marcaComprada
+        );
+
+
+        localStorage.setItem(
+            "melhoriasCompradas",
+            melhoriasCompradas
+        );
+
+
+        localStorage.setItem(
+            "saboresComprados",
+            JSON.stringify(
+                saboresComprados
+            )
+        );
+
+
+        alert(
+            "Jogo salvo com sucesso! 💾🍦"
+        );
+
+    }
+
+
+    /* =========================
+       CARREGAR JOGO
+    ========================= */
+
+    function carregarJogo() {
+
+        if (
+            localStorage.getItem(
+                "dinheiro"
+            ) != null
+        ) {
+
+
+            dinheiro =
+                Number(
+                    localStorage.getItem(
+                        "dinheiro"
+                    )
+                );
+
+
+            dinheiroPorClique =
+                Number(
+                    localStorage.getItem(
+                        "dinheiroPorClique"
+                    )
+                );
+
+
+            custoCarrinhoSorvete =
+                Number(
+                    localStorage.getItem(
+                        "custoCarrinho"
+                    )
+                );
+
+
+            freezerComprado =
+                localStorage.getItem(
+                    "freezerComprado"
+                ) == "true";
+
+
+            marcaComprada =
+                localStorage.getItem(
+                    "marcaComprada"
+                ) == "true";
+
+
+            melhoriasCompradas =
+                Number(
+                    localStorage.getItem(
+                        "melhoriasCompradas"
+                    )
+                );
+
+
+            if (
+                localStorage.getItem(
+                    "saboresComprados"
+                ) != null
+            ) {
+
+                saboresComprados =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "saboresComprados"
+                        )
+                    );
+
             }
 
+        }
+
+
+        if (
+            freezerComprado == true
+        ) {
+
+            document.getElementById(
+                "botaoFreezer"
+            ).innerHTML =
+                "COMPRADO ✅";
+
+
+            document.getElementById(
+                "botaoFreezer"
+            ).disabled =
+                true;
 
         }
 
 
-    </script>
+        if (
+            marcaComprada == true
+        ) {
 
+            document.getElementById(
+                "botaoMarca"
+            ).innerHTML =
+                "COMPRADO ✅";
+
+
+            document.getElementById(
+                "botaoMarca"
+            ).disabled =
+                true;
+
+        }
+
+
+        if (
+            localStorage.getItem(
+                "recompensaResgatada"
+            ) == 1
+        ) {
+
+            document.getElementById(
+                "botaoRecompensa"
+            ).innerHTML =
+                "RECOMPENSA RESGATADA ✅";
+
+
+            document.getElementById(
+                "botaoRecompensa"
+            ).disabled =
+                true;
+
+        }
+
+
+        atualizarTela();
+
+    }
+
+
+    /* =========================
+       PAINEL
+    ========================= */
+
+    function painelAdministrativo() {
+
+        location.href =
+            "09_painel.html";
+
+    }
+
+
+    /* =========================
+       INICIAR JOGO
+    ========================= */
+
+    carregarJogo();
+
+</script>
+```
 
 </body>
 

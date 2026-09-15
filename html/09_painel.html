@@ -1,107 +1,533 @@
 <!DOCTYPE html>
-<html lang="pt">
+
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Painel - Conradito Sorvetito 🍦</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #fff0f7, #ffd6e8, #ffb6d5);
+        color: #8b1952;
+    }
+
+    /* CABEÇALHO */
+
+    header {
+        background: linear-gradient(135deg, #ff8fc4, #f54291);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        box-shadow: 0 5px 15px rgba(150, 20, 80, 0.2);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 38px;
+        text-shadow: 2px 2px #b51f61;
+    }
+
+    header p {
+        margin: 8px;
+        font-size: 16px;
+    }
+
+    /* ÁREA PRINCIPAL */
+
+    .container {
+        width: 90%;
+        max-width: 550px;
+        margin: 50px auto;
+    }
+
+    /* LOGIN */
+
+    #painelLogin {
+        background: white;
+        padding: 35px;
+        border-radius: 25px;
+        border: 3px solid #ff9ac6;
+        box-shadow: 0 8px 25px rgba(180, 30, 90, 0.18);
+        text-align: center;
+    }
+
+    #painelLogin h2 {
+        color: #d52d78;
+        font-size: 28px;
+        margin-top: 0;
+    }
+
+    .emojiLogin {
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
+
+    .campo {
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .campo label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #a51d5c;
+    }
+
+    input {
+        width: 100%;
+        padding: 13px;
+        border: 2px solid #ffafd0;
+        border-radius: 12px;
+        outline: none;
+        font-size: 16px;
+    }
+
+    input:focus {
+        border-color: #e91e73;
+        box-shadow: 0 0 5px rgba(233, 30, 115, 0.25);
+    }
+
+    /* BOTÕES */
+
+    button {
+        border: none;
+        padding: 13px 22px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ff4f98, #e91e73);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    .botaoEntrar {
+        width: 100%;
+        margin-top: 25px;
+        font-size: 16px;
+    }
+
+    /* PAINEL ADMINISTRATIVO */
+
+    #painelAdministrativo {
+        background: white;
+        padding: 35px;
+        border-radius: 25px;
+        border: 3px solid #ff9ac6;
+        box-shadow: 0 8px 25px rgba(180, 30, 90, 0.18);
+        text-align: center;
+    }
+
+    #painelAdministrativo h2 {
+        color: #d52d78;
+        margin-top: 0;
+    }
+
+    .adminIcon {
+        font-size: 65px;
+    }
+
+    .boasVindas {
+        background: #ffe5f0;
+        border: 2px solid #ffb1d0;
+        border-radius: 18px;
+        padding: 18px;
+        margin: 25px 0;
+    }
+
+    .boasVindas strong {
+        color: #d51e6d;
+    }
+
+    .acoes {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+    .botaoSair {
+        background: #b91f63;
+    }
+
+    .botaoJogo {
+        background: #ff4f98;
+    }
+
+    /* MENSAGEM */
+
+    .mensagem {
+        margin-top: 20px;
+        color: #b52262;
+        font-size: 14px;
+    }
+
+    /* RODAPÉ */
+
+    footer {
+        margin-top: 40px;
+        background: #b91f63;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+</style>
+```
+
 </head>
 
 <body>
 
+```
+<!-- CABEÇALHO -->
+
+<header>
+
+    <h1>🍦 Conradito Sorvetito 🍦</h1>
+
+    <p>Painel administrativo</p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- LOGIN -->
+
     <div id="painelLogin">
-        <h1>Login</h1>
-        <form>
-            <p>Digite seu usuário:</p>
-            <input id="inputUsuario" />
-            <p>Digite sua senha:</p>
-            <input id="inputSenha" type="password" />
-            <br /><br />
 
-        </form>
-        <button onclick="autenticar()"> Entrar</button>
+        <div class="emojiLogin">
+            🔐
+        </div>
+
+        <h2>Login</h2>
+
+        <p>
+            Entre para acessar o painel administrativo.
+        </p>
+
+
+        <div class="campo">
+
+            <label for="inputUsuario">
+                👤 Usuário
+            </label>
+
+            <input
+                id="inputUsuario"
+                type="text"
+                placeholder="Digite seu usuário"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="inputSenha">
+                🔑 Senha
+            </label>
+
+            <input
+                id="inputSenha"
+                type="password"
+                placeholder="Digite sua senha"
+            >
+
+        </div>
+
+
+        <button
+            class="botaoEntrar"
+            onclick="autenticar()"
+        >
+            🍦 ENTRAR
+        </button>
+
+
+        <p class="mensagem">
+            Dica: entre com sua conta de administrador.
+        </p>
+
     </div>
 
 
-    <hr />
 
-    <div id="painelAdministrativo" style="display: none;">
-        <h1>Painel administrativo</h1>
-        <p>Você esta logado como <strong>administrador</strong></p>
-        <button onclick="logout()">Sair da Conta</button>
-        <br/><br/>
-        <button onclick="Sorvete()"> Volte para o jogo </button>
+    <!-- PAINEL ADMINISTRATIVO -->
+
+    <div
+        id="painelAdministrativo"
+        style="display: none;"
+    >
+
+        <div class="adminIcon">
+            👑
+        </div>
+
+        <h2>
+            Painel Administrativo
+        </h2>
+
+
+        <div class="boasVindas">
+
+            <p>
+                Bem-vindo ao painel da
+                <strong>Conradito Sorvetito</strong>! 🍦
+            </p>
+
+            <p>
+                Você está logado como
+                <strong>administrador</strong>.
+            </p>
+
+        </div>
+
+
+        <h3>
+            ⚙️ Área de administração
+        </h3>
+
+        <p>
+            Aqui você pode voltar para o jogo
+            ou sair da sua conta.
+        </p>
+
+
+        <div class="acoes">
+
+            <button
+                class="botaoJogo"
+                onclick="Sorvete()"
+            >
+                🍦 VOLTAR PARA O JOGO
+            </button>
+
+            <button
+                class="botaoSair"
+                onclick="logout()"
+            >
+                🚪 SAIR DA CONTA
+            </button>
+
+        </div>
 
     </div>
-    
 
-    <script>
-
-
-        function Sorvete(){
-            location.href = "08_conradito_sorvetito.html"
-        } 
+</div>
 
 
-        verificalogin()
+<footer>
 
-        function verificalogin(){
+    🍦 Conradito Sorvetito 🍦
+    <br>
+    Administração da sorveteria 💗
 
-            let autenticado = localStorage.getItem("autenticado")
+</footer>
 
-            if(autenticado == 1){
-                document.getElementById("painelAdministrativo").style.display = "block"
-                document.getElementById("painelLogin").style.display = "none"
-            }
+
+
+<script>
+
+
+    /* ============================
+       VOLTAR PARA O JOGO
+    ============================ */
+
+    function Sorvete() {
+
+        location.href = "08_conradito_sorvetito.html";
+
+    }
+
+
+    /* ============================
+       VERIFICAR LOGIN
+    ============================ */
+
+    verificalogin();
+
+
+    function verificalogin() {
+
+        let autenticado =
+            localStorage.getItem("autenticado");
+
+
+        if (autenticado == 1) {
+
+            document.getElementById(
+                "painelAdministrativo"
+            ).style.display = "block";
+
+
+            document.getElementById(
+                "painelLogin"
+            ).style.display = "none";
+
+        }
+
+    }
+
+
+    /* ============================
+       AUTENTICAR
+    ============================ */
+
+    function autenticar() {
+
+        let usuario =
+            document.getElementById(
+                "inputUsuario"
+            ).value;
+
+
+        let senha =
+            document.getElementById(
+                "inputSenha"
+            ).value;
+
+
+        /* VERIFICA USUÁRIO VAZIO */
+
+        if (usuario.trim().length < 3) {
+
+            alert(
+                "Usuário incorreto. Verifique e tente novamente."
+            );
+
+            return;
 
         }
 
 
-        function autenticar() {
+        /* VERIFICA SENHA VAZIA */
 
-            // Busca e popula a variaveis com os valores dos inputs
-            let usuario = document.getElementById("inputUsuario").value
-            let senha = document.getElementById("inputSenha").value
+        if (senha.length == 0) {
 
-            if (usuario.trim().length < 3) {
-                alert("Usuario incorreto. Verifique e tente novamente...")
-                return
-            }
+            alert(
+                "Senha incorreta. Verifique e tente novamente."
+            );
 
-            if (senha.length == 0) {
-                alert("Senha incorreto. Verifique e tente novamente...")
-                return
-            }
+            return;
 
-            if (usuario != "administrador") {
-                alert("Usuario incorreto")
-                return
-            }
-
-            if (senha != "123123") {
-                alert("Senha incorreta")
-                return
-            }
-
-            localStorage.setItem("autenticado", 1)
-
-            // Alterna a visualizacao dos paineis (mostrar/ocultar)
-            document.getElementById("painelAdministrativo").style.display = "block"
-            document.getElementById("painelLogin").style.display = "none"
-        }
-
-        function logout() {
-
-            localStorage.removeItem("autenticado")
-
-            document.getElementById("painelAdministrativo").style.display = "none"
-            document.getElementById("painelLogin").style.display = "block"
         }
 
 
+        /* VERIFICA USUÁRIO */
 
-    </script>
+        if (usuario != "administrador") {
 
+            alert("Usuário incorreto.");
+
+            return;
+
+        }
+
+
+        /* VERIFICA SENHA */
+
+        if (senha != "123123") {
+
+            alert("Senha incorreta.");
+
+            return;
+
+        }
+
+
+        /* SALVA LOGIN */
+
+        localStorage.setItem(
+            "autenticado",
+            1
+        );
+
+
+        /* MOSTRA PAINEL */
+
+        document.getElementById(
+            "painelAdministrativo"
+        ).style.display = "block";
+
+
+        /* ESCONDE LOGIN */
+
+        document.getElementById(
+            "painelLogin"
+        ).style.display = "none";
+
+
+        alert(
+            "Login realizado com sucesso! 🍦💗"
+        );
+
+    }
+
+
+    /* ============================
+       LOGOUT
+    ============================ */
+
+    function logout() {
+
+        localStorage.removeItem(
+            "autenticado"
+        );
+
+
+        document.getElementById(
+            "painelAdministrativo"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "painelLogin"
+        ).style.display = "block";
+
+
+        document.getElementById(
+            "inputUsuario"
+        ).value = "";
+
+
+        document.getElementById(
+            "inputSenha"
+        ).value = "";
+
+
+        alert(
+            "Você saiu da conta. 👋"
+        );
+
+    }
+
+</script>
+```
 
 </body>
 
